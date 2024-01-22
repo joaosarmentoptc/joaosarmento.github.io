@@ -157,7 +157,7 @@ div {
     text-align: center;
     margin-top: 1rem;
     width: 17.5rem;
-    height: 25rem;
+    height: 22rem;
     background: #f0f0f0;
     background-image: linear-gradient(#d0d0d0, #f0f0f0);
     border-radius: 5px;
@@ -188,6 +188,8 @@ div {
 .control {
     width: 40px;
     margin: 20px 5px 5px;
+    align-items: center;
+    text-align: center;
 }
 
 
@@ -202,8 +204,17 @@ font-size: 24px; /* Adjust the font size as needed */
 width: 40px; /* Adjust the width as needed */
 height: 40px; /* Adjust the height as needed */
 border-radius: 50%; /* Make it a circle */
-cursor: pointer;
+align-items: center;
+text-align: center;
 }
 
+.footnote {
+    font-size: 0.45em;
+}
+
+.help-text {
+    font-size: 0.65em;
+    margin-top: 25px;
+}
   
   
