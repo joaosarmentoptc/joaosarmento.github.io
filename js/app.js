@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const startButton = document.querySelector('.button');
+    const leftButton = document.querySelector('.buttonLeft');
+    const rightButton = document.querySelector('.buttonRight');
+    const upButton = document.querySelector('.buttonUp');
+    const downButton = document.querySelector('.buttonDown');
     const scoreDisplay = document.querySelector('.score-display');
     const linesDisplay = document.querySelector('.lines-score');
     const levelDisplay = document.querySelector('.level-score');
@@ -159,29 +163,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function moveDown() {
-        undraw();
-        currentPosition += GRID_WIDTH;
-        draw();
-        freeze();
+        if (timerId) {
+            undraw();
+            currentPosition += GRID_WIDTH;
+            draw();
+            freeze();
+        }
     }
 
     function moveRight() {
-        const isAtRightEdge = currentPiece.some(index => (currentPosition + index) % GRID_WIDTH === GRID_WIDTH - 1);
-        const hasBlock = currentPiece.some(index => squares[currentPosition + index + 1].classList.contains('block2'));
-        if (!isAtRightEdge && !hasBlock) {
-            undraw();
-            currentPosition += 1;
-            draw();
+        if (timerId) {
+            const isAtRightEdge = currentPiece.some(index => (currentPosition + index) % GRID_WIDTH === GRID_WIDTH - 1);
+            const hasBlock = currentPiece.some(index => squares[currentPosition + index + 1].classList.contains('block2'));
+            if (!isAtRightEdge && !hasBlock) {
+                undraw();
+                currentPosition += 1;
+                draw();
+            }
         }
     }
 
     function moveLeft() {
-        const isAtLeftEdge = currentPiece.some(index => (currentPosition + index) % GRID_WIDTH === 0);
-        const hasBlock = currentPiece.some(index => squares[currentPosition + index - 1].classList.contains('block2'));
-        if (!isAtLeftEdge && !hasBlock) {
-            undraw();
-            currentPosition -= 1;
-            draw();
+        if (timerId) {
+            const isAtLeftEdge = currentPiece.some(index => (currentPosition + index) % GRID_WIDTH === 0);
+            const hasBlock = currentPiece.some(index => squares[currentPosition + index - 1].classList.contains('block2'));
+            if (!isAtLeftEdge && !hasBlock) {
+                undraw();
+                currentPosition -= 1;
+                draw();
+            }
         }
     }
 
@@ -210,14 +220,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     function rotate() {
-        undraw();
-        currentRotation++;
-        if (currentRotation === ROTATIONS) {
-            currentRotation = 0;
+        if (timerId) {
+            undraw();
+            currentRotation++;
+            if (currentRotation === ROTATIONS) {
+                currentRotation = 0;
+            }
+            currentPiece = theTetrominoes[randomPiece][currentRotation];
+            checkRotatedPosition();
+            draw();
         }
-        currentPiece = theTetrominoes[randomPiece][currentRotation];
-        checkRotatedPosition();
-        draw();
     }
 
     function gameOver() {
@@ -314,6 +326,14 @@ document.addEventListener('DOMContentLoaded', () => {
         timerId = setInterval(moveDown, TIMER - (level * 100));
         levelDisplay.innerHTML = level + 1;
     }
+
+
+    leftButton.addEventListener('click', moveLeft);
+    rightButton.addEventListener('click', moveRight);
+    upButton.addEventListener('click', rotate);
+    downButton.addEventListener('click', moveDown);
+
+
 
 
 

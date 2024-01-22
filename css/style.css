@@ -70,6 +70,7 @@ div {
 
 .grid {
     border: 1px solid black;
+    border-radius: 1%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -175,3 +176,34 @@ div {
     color: black;
     text-align: center;
 }
+
+.controls-container {
+    display: flex;
+    width: 150px;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: -20px;
+  }
+
+.control {
+    width: 40px;
+    margin: 20px 5px 5px;
+}
+
+
+.buttonUp,
+.buttonLeft,
+.buttonDown,
+.buttonRight {
+background-color: rgba(200, 200, 200, 0.5); /* Light grey transparent background */
+border: none;
+color: #333; /* Text color */
+font-size: 24px; /* Adjust the font size as needed */
+width: 40px; /* Adjust the width as needed */
+height: 40px; /* Adjust the height as needed */
+border-radius: 50%; /* Make it a circle */
+cursor: pointer;
+}
+
+  
+  

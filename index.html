@@ -7,10 +7,11 @@
   <script src="js/app.js" charset="UTF-8"> </script>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
   <header>
-    <h1 class="fw-300 t-ucase">Welcome <br><span class="fw-400 t-wide t-big t-ucase">to tetris</span></h1>  
+    <h1 class="fw-300 t-ucase">take a break <br><span class="fw-400 t-wide t-big t-ucase">with tetris</span></h1>  
   </header>
 
   <main class="game-area">
@@ -26,10 +27,21 @@
         <h2 class="lines-display fw-400 t-ucase">Lines: <span class="lines-score">0</span> | Level: <span class="level-score">1</span> </h2>
       </div>
       <button class="button t-ucase" href="#">Start / Pause</button>
+
+      <div class="controls-container">
+        <div class="control"></div>
+        <div class="control"><button class="buttonUp material-symbols-outlined">arrow_drop_up</button></div>
+        <div class="control"></div>
+        <div class="control"><button class="buttonLeft material-symbols-outlined">arrow_left</button></div>
+        <div class="control"><button class="buttonDown material-symbols-outlined">arrow_drop_down</button></div>
+        <div class="control"><button class="buttonRight material-symbols-outlined">arrow_right</button></div>
+      </div>
+
+      <!-- 
       <h2 class="fw-400 t-ucase rules-display">← → move left / right <br/>
       ↑ rotate <br/>
       ↓ move down</h2>
-
+-->
     </section>
   </main>
 </body>
