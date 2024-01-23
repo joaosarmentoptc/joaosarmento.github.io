@@ -154,10 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
             randomPiece = nextRandomPiece;
             nextRandomPiece = Math.floor(Math.random() * theTetrominoes.length);
             currentPiece = theTetrominoes[randomPiece][currentRotation];
+            clearLine();
             currentPosition = INITIAL_POSITION;
             draw();
             displayPreview();
-            clearLine();
             gameOver();
         }
     }
